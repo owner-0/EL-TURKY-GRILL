@@ -16,7 +16,6 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="#c0392b">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-title" content="جزارة التركي">
-
   <!-- ========== أوبن جراف (فيسبوك / واتساب / تيليجرام) ========== -->
   <meta property="og:title" content="جزارة ومشويات التركي - السويس">
   <meta property="og:description" content="لحوم بلدية منتقاة ومشويات تفتح النفس. الطعم له حكاية عند التركي. الدليفري شغال.">
@@ -27,13 +26,11 @@
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="جزارة ومشويات التركي">
   <meta property="og:locale" content="ar_EG">
-
   <!-- ========== تويتر كارد ========== -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="جزارة ومشويات التركي - السويس">
   <meta name="twitter:description" content="لحوم بلدية منتقاة ومشويات تفتح النفس. الطعم له حكاية عند التركي.">
   <meta name="twitter:image" content="https://i.ibb.co/B29SK6h3/image.jpg">
-
   <!-- ========== آيكونات ========== -->
   <link rel="icon" type="image/png" sizes="32x32" href="https://i.ibb.co/B29SK6h3/image.jpg">
   <link rel="icon" type="image/png" sizes="192x192" href="https://i.ibb.co/B29SK6h3/image.jpg">
@@ -73,7 +70,19 @@
       position: relative;
       -webkit-overflow-scrolling: touch;
     }
-    /* خلفية المنطقة العلوية (اللوجو + الكوفر) */
+
+    body::-webkit-scrollbar,
+    html::-webkit-scrollbar {
+      display: none !important;
+      width: 0 !important;
+      height: 0 !important;
+    }
+
+    body {
+      scrollbar-width: none !important;
+      -ms-overflow-style: none !important;
+    }
+
     .header-wrapper {
       background-image: url('https://i.ibb.co/3mk2BjCj/image.jpg');
       background-size: 100% 100%;
@@ -83,7 +92,6 @@
       border-bottom: 2px solid rgba(192,57,43,0.2);
     }
     
-    /* طبقة شفافة فوق الصورة عشان اللوجو يبان */
     .header-wrapper::before {
       content: '';
       position: absolute;
@@ -101,25 +109,12 @@
       z-index: 1;
     }
 
-    /* إخفاء شريط التمرير بالكامل */
-    body::-webkit-scrollbar,
-    html::-webkit-scrollbar {
-      display: none !important;
-      width: 0 !important;
-      height: 0 !important;
-    }
-    /* إخفاء صورة اسفل اللوجو بالكامل */
-            .header-title-image {
+    .header-title-image {
       visibility: hidden;
       height: 0;
       margin: 0;
       padding: 0;
       overflow: hidden;
-    }
-
-    body {
-      scrollbar-width: none !important;
-      -ms-overflow-style: none !important;
     }
 
     .main-container {
@@ -136,7 +131,6 @@
       position: relative;
     }
 
-    /* سبنر */
     #fullscreen-spinner {
       position: fixed;
       top: 0;
@@ -179,11 +173,10 @@
       letter-spacing: 2px;
     }
 
-    /* لوجو */
-   .logo-container {
+    .logo-container {
       text-align: center;
       padding: 50px 15px 60px;
-      background: transparent !important; /* 👈 خليها شفافة */
+      background: transparent !important;
       width: 100%;
     }
     .logo-link {
@@ -192,7 +185,7 @@
       text-decoration: none;
       pointer-events: none;
     }
-        .logo-image {
+    .logo-image {
       width: clamp(100px, 20vw, 150px);
       height: clamp(100px, 20vw, 150px);
       object-fit: contain;
@@ -203,37 +196,11 @@
       box-shadow: 0 4px 25px rgba(0, 0, 0, 0.15);
       animation: logoPulse 2.5s infinite ease-in-out;
     }
-
     @keyframes logoPulse {
-      0%, 100% { 
-        transform: scale(1); 
-        box-shadow: 0 4px 25px rgba(192, 57, 43, 0.3); 
-      }
-      50% { 
-        transform: scale(1.05); 
-        box-shadow: 0 8px 40px rgba(192, 57, 43, 0.6); 
-      }
+      0%, 100% { transform: scale(1); box-shadow: 0 4px 25px rgba(192, 57, 43, 0.3); }
+      50% { transform: scale(1.05); box-shadow: 0 8px 40px rgba(192, 57, 43, 0.6); }
     }
 
-    /* صورة العنوان */
-    .header-title-image {
-      text-align: center;
-      margin: 12px 15px 8px;
-      width: calc(100% - 30px);
-    }
-    .adaptive-title-img {
-      max-width: 100%;
-      height: auto;
-      max-height: clamp(80px, 15vw, 130px);
-      object-fit: contain;
-      border-radius: 16px;
-      background: #fff;
-      padding: 6px;
-      border: 2px solid #e0e0e0;
-      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
-    }
-
-    /* سلايد شو */
     .slideshow-wrapper {
       padding: 0 12px;
       margin: 16px 0 8px;
@@ -309,7 +276,6 @@
       transform: scale(1.3);
     }
 
-    /* شريط الأخبار */
     .news-ticker {
       width: 100%;
       background: #fff;
@@ -351,7 +317,6 @@
       font-weight: 900;
     }
 
-    /* معلومات عنا */
     .about-section {
       padding: 0 12px;
       margin: 8px 0 16px;
@@ -401,7 +366,6 @@
       color: #444;
     }
 
-    /* بطاقات */
     .cards-section {
       padding: 16px 12px;
       display: grid;
@@ -422,6 +386,8 @@
       width: 100%;
       text-align: center;
       will-change: transform, opacity;
+      display: flex;
+      flex-direction: column;
     }
     .card.reveal {
       opacity: 1;
@@ -438,14 +404,21 @@
     .card img {
       width: 100%;
       height: auto;
-      max-height: clamp(160px, 30vw, 260px);
-      object-fit: cover;
+      max-height: clamp(160px, 30vw, 220px);
+      min-height: clamp(140px, 25vw, 180px);
+      object-fit: fill;
       display: block;
       border-bottom: 4px solid #c0392b;
       cursor: pointer;
+      flex-shrink: 0;
     }
     .card-body {
       padding: 14px 12px 10px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
     }
     .card-title {
       font-size: clamp(1.1rem, 2.5vw, 1.5rem);
@@ -462,25 +435,33 @@
     .order-btn {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
+      justify-content: center;
+      gap: 6px;
       background: linear-gradient(135deg, #25D366, #128C7E);
       color: #fff;
       font-weight: 800;
-      font-size: clamp(0.9rem, 2vw, 1.15rem);
-      padding: 12px 24px;
-      border-radius: 40px;
+      font-size: clamp(0.75rem, 1.5vw, 0.9rem);
+      padding: clamp(8px, 1.5vw, 12px) clamp(16px, 3vw, 24px);
+      border-radius: 35px;
       cursor: pointer;
       border: none;
       font-family: 'Cairo', sans-serif;
       transition: all 0.3s;
       box-shadow: 0 4px 16px rgba(37, 211, 102, 0.3);
+      margin-top: auto;
+      width: auto;
+      min-width: clamp(100px, 20vw, 140px);
+      text-align: center;
+      white-space: nowrap;
     }
     .order-btn:hover {
       transform: translateY(-2px);
       box-shadow: 0 8px 24px rgba(37, 211, 102, 0.5);
     }
+    .order-btn i {
+      font-size: clamp(0.8rem, 1.5vw, 1rem);
+    }
 
-            /* ========== معلومات التواصل ========== */
     .info-block {
       background: linear-gradient(135deg, #fff 0%, #fef9f9 100%);
       padding: 20px 16px;
@@ -500,8 +481,11 @@
       align-items: center;
       justify-content: center;
     }
+    .highlight {
+      color: #c0392b;
+      font-weight: 900;
+    }
 
-    /* لايت بوكس */
     .lightbox-overlay {
       position: fixed;
       top: 0;
@@ -561,7 +545,6 @@
       justify-content: center;
     }
 
-    /* مودال */
     .modal-overlay {
       position: fixed;
       top: 0;
@@ -639,7 +622,6 @@
       font-family: 'Cairo', sans-serif;
     }
 
-      /* ========== فوتــــر ========== */
     footer {
       text-align: center;
       margin-top: auto;
@@ -648,7 +630,6 @@
       border-top: 3px solid #c0392b;
       width: 100%;
     }
-
     .footer-whatsapp {
       display: inline-flex;
       align-items: center;
@@ -656,37 +637,31 @@
       background: linear-gradient(135deg, #25D366, #128C7E);
       color: #fff;
       font-weight: 900;
-      font-size: clamp(0.7rem, 1.5vw, 0.85rem);  /* صغر الخط */
-      padding: 10px 20px;                          /* صغر الحشوة */
+      font-size: clamp(0.7rem, 1.5vw, 0.85rem);
+      padding: 10px 20px;
       border-radius: 40px;
       cursor: pointer;
       box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
       transition: all 0.3s;
       animation: footerPulse 2s infinite ease-in-out;
     }
-
     .footer-whatsapp:hover {
       transform: scale(1.05);
       box-shadow: 0 10px 30px rgba(37, 211, 102, 0.6);
     }
-
     .footer-whatsapp i {
-      font-size: 1.2rem;                           /* صغر الأيقونة */
+      font-size: 1.2rem;
       animation: iconPulse 1.5s infinite;
     }
-
     @keyframes footerPulse {
       0%, 100% { box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4); }
       50% { box-shadow: 0 12px 35px rgba(37, 211, 102, 0.7); }
     }
-
     @keyframes iconPulse {
       0%, 100% { transform: scale(1); }
       50% { transform: scale(1.2); }
     }
-/*نهاية الفوتر*/
 
-    /* زر الصعود */
     .scroll-to-top {
       position: fixed;
       bottom: 25px;
@@ -713,7 +688,6 @@
       visibility: visible;
     }
 
-    /* الزر الطائر */
     .floating-price-btn {
       position: fixed;
       bottom: 85px;
@@ -770,7 +744,6 @@
       50% { transform: translateY(-8px); }
     }
 
-    /* صندوق الأسعار */
     .price-list-overlay {
       position: fixed;
       top: 0;
@@ -1007,7 +980,6 @@
       box-shadow: 0 4px 14px rgba(37, 211, 102, 0.3);
     }
 
-        /* صور قائمة الأسعار */
     .price-images-full {
       width: 100%;
       padding: 0 12px;
@@ -1034,6 +1006,9 @@
       cursor: pointer;
       border-bottom: 2px solid #c0392b;
       position: relative;
+      margin-bottom: 10px;
+      border-radius: 8px;
+      overflow: hidden;
     }
     .price-img-wrap img {
       width: 100%;
@@ -1053,132 +1028,83 @@
       font-size: 0.7rem;
       font-weight: 800;
     }
+    .price-img-wrap::after {
+      content: '';
+      display: block;
+      height: 5px;
+      background: linear-gradient(to left, transparent, #c0392b, transparent);
+      margin-top: 10px;
+    }
+
     @media (min-width: 600px) {
       .price-images-grid {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
       }
+      .price-img-wrap {
+        margin: 6px;
+        border: 2px solid #c0392b;
+        border-radius: 10px;
+      }
+      .price-img-wrap::after {
+        display: none;
+      }
     }
+
     @media (min-width: 1000px) {
       .price-images-grid {
         grid-template-columns: repeat(3, 1fr);
       }
     }
 
-    /* مسافة فاصلة بين الصور */
-    .price-img-wrap {
-      margin-bottom: 10px; /* 👈 غير الرقم ده */
-      border-bottom: none;
-      border-radius: 8px;
-      overflow: hidden;
-    }
-
-    /* فاصل ملون بين كل صورة والتانية */
-    .price-img-wrap::after {
-      content: '';
-      display: block;
-      height: 5px; /* 👈 وغير الرقم ده */
-      background: linear-gradient(to left, transparent, #c0392b, transparent);
-      margin-top: 10px; /* 👈 وغير الرقم ده كمان */
-    }
-
-    @media (min-width: 600px) {
-      .price-img-wrap {
-        margin: 6px; /* 👈 للتابلت والديسكتوب غير الرقم ده */
-        border: 2px solid #c0392b;
-        border-radius: 10px;
-      }
-    }
-          @media (min-width: 1024px) {
-      /* ========== إعدادات السلايد شو على الكمبيوتر ========== */
+    @media (min-width: 1024px) {
       .slideshow-container {
-        max-width: 100%;           /* عرض الإطار - 100% = عرض الشاشة كامل */
-        width: 100%;               /* العرض الفعلي */
-        margin: 0 auto;            /* توسيط الإطار */
-        max-height: 450px;         /* أقصى ارتفاع للإطار */
-        overflow: hidden;          /* اخفاء أي جزء خارج الإطار */
-      }
-      
-      .slide-item img {
-        width: 100%;               /* العرض = 100% من الإطار */
-        height: 100%;              /* الطول = 100% من الإطار */
-        max-height: 450px;         /* نفس قيمة max-height بتاع الإطار */
-        min-height: 300px;         /* الصورة الصغيرة تتمدد لـ 300px */
-        object-fit: fill;          /* fill = تملأ الإطار بالكامل بدون فراغات وبدون قص */
-        display: block;
-      }
-  
-    }
-        .card img {
-      width: 100%;
-      height: 100%;
-      max-height: 260px;
-      min-height: 200px;
-      object-fit: fill;
-      display: block;
-      border-bottom: 4px solid #c0392b;
-      cursor: pointer;
-    }
-
-            @media (min-width: 1024px) {
-      .card {
-        display: flex;
-        flex-direction: column;
-      }
-      
-      .card img {
+        max-width: 100%;
         width: 100%;
-        height: auto;
-        max-height: 220px;
-        min-height: 180px;
+        margin: 0 auto;
+        max-height: 450px;
+        overflow: hidden;
+      }
+      .slide-item img {
+        width: 100%;
+        height: 100%;
+        max-height: 450px;
+        min-height: 300px;
         object-fit: fill;
         display: block;
-        border-bottom: 4px solid #c0392b;
-        cursor: pointer;
-        flex-shrink: 0;
       }
-      
-      .card-body {
-        flex: 1;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        align-items: center;
-        padding: 14px 12px 10px;
-      }
-
-      .order-btn {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        gap: 8px;
-        background: linear-gradient(135deg, #25D366, #128C7E);
-        color: #fff;
-        font-weight: 800;
-        font-size: 0.95rem;
-        padding: 10px 22px;
-        border-radius: 40px;
-        cursor: pointer;
-        border: none;
-        font-family: 'Cairo', sans-serif;
-        box-shadow: 0 4px 16px rgba(37, 211, 102, 0.3);
-        margin-top: auto;
-        width: auto;
-        min-width: 140px;
-        text-align: center;
+      .card img {
+        max-height: 220px;
+        min-height: 180px;
       }
     }
+
     @media (max-width: 600px) {
       .order-btn {
-        font-size: 0.8rem;
-        padding: 8px 16px;
-        min-width: 110px;
+        font-size: 0.75rem;
+        padding: 8px 14px;
+        min-width: 100px;
         gap: 5px;
-        border-radius: 30px;
+        border-radius: 28px;
       }
-      
       .order-btn i {
-        font-size: 0.9rem;
+        font-size: 0.85rem;
+      }
+      .card img {
+        max-height: 200px;
+        min-height: 150px;
+      }
+    }
+
+    @media (min-width: 601px) and (max-width: 1023px) {
+      .card img {
+        max-height: 210px;
+        min-height: 165px;
+      }
+      .order-btn {
+        font-size: 0.82rem;
+        padding: 9px 18px;
+        min-width: 120px;
       }
     }
   </style>
@@ -1190,63 +1116,60 @@
     <div class="spinner-text">جزارة التركي</div>
   </div>
 
-       <div class="header-wrapper">
-      <!-- لوجو -->
-      <div class="logo-container">
-        <a class="logo-link" href="javascript:void(0);">
-          <img src="https://i.ibb.co/B29SK6h3/image.jpg" alt="لوجو" class="logo-image">
-        </a>
-      </div>
+  <div class="header-wrapper">
+    <div class="logo-container">
+      <a class="logo-link" href="javascript:void(0);">
+        <img src="https://i.ibb.co/B29SK6h3/image.jpg" alt="لوجو" class="logo-image">
+      </a>
+    </div>
+    <div class="header-title-image">
+      <img src="https://i.pinimg.com/originals/6f/2b/1a/6f2b1a25100fbde63c611561317a6ef2.gif" alt="عنوان" class="adaptive-title-img">
+    </div>
+  </div>
 
-      <!-- صورة عنوان -->
-      <div class="header-title-image">
-        <img src="https://i.pinimg.com/originals/6f/2b/1a/6f2b1a25100fbde63c611561317a6ef2.gif" alt="عنوان" class="adaptive-title-img">
+  <div class="slideshow-wrapper">
+    <div class="slideshow-container" id="slideshow">
+      <div class="slides-wrapper" id="slidesWrapper">
+        <div class="slide-item"><img src="https://i.ibb.co/3mk2BjCj/image.jpg" alt="التركي"><div class="slide-caption"><div class="slide-title"> </div><div class="slide-desc"> </div></div></div>
+        <div class="slide-item"><img src="https://i.ibb.co/FLKHLQ8x/2.jpg" alt="التركي"><div class="slide-caption"><div class="slide-title"> </div><div class="slide-desc"> </div></div></div>
+        <div class="slide-item"><img src="https://i.ibb.co/N6QKX38L/image.jpg" alt="التركي"><div class="slide-caption"><div class="slide-title"> </div><div class="slide-desc"> </div></div></div>
+        <div class="slide-item"><img src="https://i.ibb.co/hxNrCjRr/image.jpg" alt="التركي"><div class="slide-caption"><div class="slide-title"> </div><div class="slide-desc"> </div></div></div>
+        <div class="slide-item"><img src="https://images.deliveryhero.io/image/talabat/restaurants/Cover638498107352615601.jpg" alt="التركي"><div class="slide-caption"><div class="slide-title"> </div><div class="slide-desc"> </div></div></div>
+        <div class="slide-item"><img src="https://images.deliveryhero.io/image/global-menu-service/HF_EG/vendor/729566/product/185116615/c5ffd683-f617-44c6-970d-0b7c6f2cdd45.jpg" alt="التركي"><div class="slide-caption"><div class="slide-title"> </div><div class="slide-desc"> </div></div></div>
+        <div class="slide-item"><img src="https://png.pngtree.com/thumb_back/fh260/background/20241116/pngtree-street-food-market-with-grilled-skewers-bbq-pork-skew-image_16595178.jpg" alt="التركي"><div class="slide-caption"><div class="slide-title"> </div><div class="slide-desc"> </div></div></div>
+        <div class="slide-item"><img src="https://yallabook.com/blog/uploade/files/200908_9c59e53580.jpg" alt="التركي"><div class="slide-caption"><div class="slide-title"> </div><div class="slide-desc"> </div></div></div>
+        <div class="slide-item"><img src="https://images.deliveryhero.io/image/hungerstation/restaurant/android_cover_photo/f4b4d004813f8bd70740dcac7a02faef.jpeg" alt="التركي"><div class="slide-caption"><div class="slide-title"> </div><div class="slide-desc"> </div></div></div>
+        <div class="slide-item"><img src="https://www.shorouknews.com/uploadedimages/Sections/Egypt/original/2021_4_11_15_44_26_46.jpg" alt="لحوم"><div class="slide-caption"><div class="slide-title"> </div><div class="slide-desc"> </div></div></div>
       </div>
     </div>
-    <div class="slideshow-wrapper">
-      <div class="slideshow-container" id="slideshow">
-        <div class="slides-wrapper" id="slidesWrapper">
-          <div class="slide-item"><img src="https://i.ibb.co/3mk2BjCj/image.jpg" alt="التركي"><div class="slide-caption"><div class="slide-title"> </div><div class="slide-desc"> </div></div></div>
-          <div class="slide-item"><img src="https://i.ibb.co/FLKHLQ8x/2.jpg" alt="التركي"><div class="slide-caption"><div class="slide-title"> </div><div class="slide-desc"> </div></div></div>
-          <div class="slide-item"><img src="https://i.ibb.co/N6QKX38L/image.jpg" alt="التركي"><div class="slide-caption"><div class="slide-title"> </div><div class="slide-desc"> </div></div></div>
-          <div class="slide-item"><img src="https://i.ibb.co/hxNrCjRr/image.jpg" alt="التركي"><div class="slide-caption"><div class="slide-title"> </div><div class="slide-desc"> </div></div></div>
-          <div class="slide-item"><img src="https://images.deliveryhero.io/image/talabat/restaurants/Cover638498107352615601.jpg" alt="التركي"><div class="slide-caption"><div class="slide-title"> </div><div class="slide-desc"> </div></div></div>
-          <div class="slide-item"><img src="https://images.deliveryhero.io/image/global-menu-service/HF_EG/vendor/729566/product/185116615/c5ffd683-f617-44c6-970d-0b7c6f2cdd45.jpg" alt="التركي"><div class="slide-caption"><div class="slide-title"> </div><div class="slide-desc"> </div></div></div>
-          <div class="slide-item"><img src="https://png.pngtree.com/thumb_back/fh260/background/20241116/pngtree-street-food-market-with-grilled-skewers-bbq-pork-skew-image_16595178.jpg" alt="التركي"><div class="slide-caption"><div class="slide-title"> </div><div class="slide-desc"> </div></div></div>
-          <div class="slide-item"><img src="https://yallabook.com/blog/uploade/files/200908_9c59e53580.jpg" alt="التركي"><div class="slide-caption"><div class="slide-title"> </div><div class="slide-desc"> </div></div></div>
-          <div class="slide-item"><img src="https://images.deliveryhero.io/image/hungerstation/restaurant/android_cover_photo/f4b4d004813f8bd70740dcac7a02faef.jpeg" alt="التركي"><div class="slide-caption"><div class="slide-title"> </div><div class="slide-desc"> </div></div></div>
-          <div class="slide-item"><img src="https://www.shorouknews.com/uploadedimages/Sections/Egypt/original/2021_4_11_15_44_26_46.jpg" alt="لحوم"><div class="slide-caption"><div class="slide-title"> </div><div class="slide-desc"> </div></div></div>
-        </div>
-      </div>
-      <div class="dots-container" id="dotsContainer"></div>
-    </div>
-    <div class="news-ticker">
-      <div class="ticker-wrap" id="tickerWrap"></div>
-    </div>
-    <div class="about-section">
-      <div class="about-card">
-        <div class="about-title"><i class="fas fa-store-alt"></i> من نحن</div>
-        <p class="about-description">جــــزارة ومــــشــــويــــات الــــتــــركــــي 😍🔥<br>الــــمــــضــــمــــون فــــي عــــالــــم الــــلــــحــــوم 👌🥩</p>
-        <div class="about-features">
-          <div class="feature-item"><div class="feature-icon"><i class="fas fa-check-circle"></i></div><div class="feature-text">لحوم طازجة</div></div>
-          <div class="feature-item"><div class="feature-icon"><i class="fas fa-fire"></i></div><div class="feature-text">مشويات</div></div>
-          <div class="feature-item"><div class="feature-icon"><i class="fas fa-shipping-fast"></i></div><div class="feature-text">توصيل سريع</div></div>
-          <div class="feature-item"><div class="feature-icon"><i class="fas fa-star"></i></div><div class="feature-text">جودة مضمونة</div></div>
-        </div>
-      </div>
-    </div>
+    <div class="dots-container" id="dotsContainer"></div>
+  </div>
 
- 
+  <div class="news-ticker">
+    <div class="ticker-wrap" id="tickerWrap"></div>
+  </div>
 
-    <div class="cards-section" id="cardsContainer"></div>
-
-           <!-- ========== صور قائمة الأسعار أسفل البطاقات ========== -->
-    <div class="price-images-full">
-      <div class="price-images-title">
-        <i class="fas fa-list-alt"></i> قائمة الأسعار
+  <div class="about-section">
+    <div class="about-card">
+      <div class="about-title"><i class="fas fa-store-alt"></i> من نحن</div>
+      <p class="about-description">جــــزارة ومــــشــــويــــات الــــتــــركــــي 😍🔥<br>الــــمــــضــــمــــون فــــي عــــالــــم الــــلــــحــــوم 👌🥩</p>
+      <div class="about-features">
+        <div class="feature-item"><div class="feature-icon"><i class="fas fa-check-circle"></i></div><div class="feature-text">لحوم طازجة</div></div>
+        <div class="feature-item"><div class="feature-icon"><i class="fas fa-fire"></i></div><div class="feature-text">مشويات</div></div>
+        <div class="feature-item"><div class="feature-icon"><i class="fas fa-shipping-fast"></i></div><div class="feature-text">توصيل سريع</div></div>
+        <div class="feature-item"><div class="feature-icon"><i class="fas fa-star"></i></div><div class="feature-text">جودة مضمونة</div></div>
       </div>
-      <div class="price-images-grid" id="priceImagesGrid"></div>
     </div>
+  </div>
+
+  <div class="cards-section" id="cardsContainer"></div>
+
+  <div class="price-images-full">
+    <div class="price-images-title">
+      <i class="fas fa-list-alt"></i> قائمة الأسعار
+    </div>
+    <div class="price-images-grid" id="priceImagesGrid"></div>
+  </div>
 
   <button class="scroll-to-top" id="scrollToTop"><i class="fas fa-chevron-up"></i></button>
 
@@ -1256,14 +1179,11 @@
     <span class="price-label">قائمة الأسعار</span>
   </button>
 
-    <div class="info-block">
-      <p>📞 <span class="highlight">01515985556</span> | 📞 <span class="highlight">01050011053</span></p>
-      <p>📍 العنوان السويس – الملاحة القديمة – أمام المخابرات العامة</p>
-      <p>⏰ الدليفري من 10 صباحاً حتى 2 مساءً</p>
-    </div>
-    
-
-  
+  <div class="info-block">
+    <p>📞 <span class="highlight">01515985556</span> | 📞 <span class="highlight">01050011053</span></p>
+    <p>📍 العنوان السويس – الملاحة القديمة – أمام المخابرات العامة</p>
+    <p>⏰ الدليفري من 10 صباحاً حتى 2 مساءً</p>
+  </div>
 
   <div class="price-list-overlay" id="priceListOverlay">
     <div class="price-list-container">
@@ -1310,15 +1230,16 @@
       <button class="whatsapp-btn" id="modalSendBtn"><i class="fab fa-whatsapp"></i> إرسال إلى واتساب</button>
     </div>
   </div>
-    <footer>
-      <span class="footer-whatsapp" onclick="window.open('https://wa.me/201096378895?text=' + encodeURIComponent('مرحباً، أريد تصميم موقع'), '_blank')">
-        <i class="fab fa-whatsapp"></i> اطلب تصميم موقعك الان
-      </span>
-    </footer>
+
+  <footer>
+    <span class="footer-whatsapp" onclick="window.open('https://wa.me/201096378895?text=' + encodeURIComponent('مرحباً، أريد تصميم موقع'), '_blank')">
+      <i class="fab fa-whatsapp"></i> اطلب تصميم موقعك الان
+    </span>
+  </footer>
+
   <script>
     (function() {
       const SPINNER_DURATION = 2000;
-      
       window.addEventListener('load', () => {
         const spinner = document.getElementById('fullscreen-spinner');
         if (spinner) setTimeout(() => spinner.classList.add('hidden'), SPINNER_DURATION);
@@ -1331,7 +1252,6 @@
       const dotsContainer = document.getElementById('dotsContainer');
       const slides = document.querySelectorAll('.slide-item');
       let currentSlide = 0;
-      
       function createDots() {
         dotsContainer.innerHTML = '';
         slides.forEach((_, i) => {
@@ -1341,13 +1261,11 @@
           dotsContainer.appendChild(dot);
         });
       }
-      
       function goToSlide(i) {
         currentSlide = ((i % slides.length) + slides.length) % slides.length;
         slidesWrapper.style.transform = `translateX(${currentSlide * 100}%)`;
         document.querySelectorAll('.dot').forEach((d, j) => d.classList.toggle('active', j === currentSlide));
       }
-      
       createDots();
       setInterval(() => goToSlide(currentSlide + 1), 4000);
 
@@ -1356,15 +1274,13 @@
         { img: "https://i.ibb.co/hxNrCjRr/image.jpg", title: "صينية الصحاب", desc: "لمة الصحاب تحلي مع التركي" },
         { img: "https://i.ibb.co/HDgYnt6N/image.jpg", title: "صينية الأكيل", desc: "مع التركي احلي طعم واحلي اكل" },
         { img: "https://i.ibb.co/FkCmmWvG/image.jpg", title: "طاجن لحمة بالخضار", desc: "الطعم حكاية" },
-
         { img: "https://www.shorouknews.com/uploadedimages/Sections/Egypt/original/2021_4_11_15_44_26_46.jpg", title: "🥩 لحوم بلدية منتقاة", desc: "أجود أنواع اللحوم البلدية الطازجة" },
         { img: "https://besteaterys.com/wp-content/uploads/2021/04/1-121.png", title: "🔥 مشويات تفتح النفس", desc: "تتبيلة خاصة وطعم له حكاية" },
         { img: "https://www.etufegypt.com/wp-content/uploads/2021/01/%D8%B9%D8%A7%D9%85%D9%84-%D8%A7%D9%84%D8%AF%D9%84%D9%8A%D9%81%D8%B1%D9%89.jpg", title: "🛵 الدليفري شغال", desc: "توصيل سريع من 10 صباحاً حتى 2 مساءً" },
-        { img: "https://img.youm7.com/ArticleImgs/2017/8/31/103013-%D9%83%D9%81%D8%AA%D8%A9.jpg", title: "♨️ كفتة وكباب", desc: "مشاوي على الفحم بنكهة لا تقاوم" },
+        { img: "https://img.youm7.com/ArticleImgs/2017/8/31/103013-%D9%83%D9%81%D8%AA%D8%A9.jpg", title: "♨️ كفتة وكباب", desc: "مشاوي على الفحم بنكهة لا تقاوم" }
       ];
 
       const cardsContainer = document.getElementById('cardsContainer');
-      
       function renderCards() {
         cardsContainer.innerHTML = cardsData.map((c, i) => `
           <div class="card" data-index="${i}">
@@ -1378,7 +1294,6 @@
             </div>
           </div>
         `).join('');
-        
         const observer = new IntersectionObserver((entries) => {
           entries.forEach(e => {
             if (e.isIntersecting) {
@@ -1388,10 +1303,8 @@
             }
           });
         }, { threshold: 0.15 });
-        
         document.querySelectorAll('.card').forEach(c => observer.observe(c));
       }
-      
       renderCards();
 
       window.openLightbox = (src, title) => {
@@ -1414,21 +1327,13 @@
       }, { passive: true });
       scrollBtn.onclick = () => window.scrollTo({ top: 0, behavior: 'smooth' });
 
-      // قائمة الأسعار الزر الطائر
       const priceImages = [
-        "https://i.ibb.co/tpsKS92Y/1.jpg",
-        "https://i.ibb.co/8nh6tMfq/2.jpg",
-        "https://i.ibb.co/bM750XzS/3.jpg",
-        "https://i.ibb.co/BVwvFQGv/4.jpg",
-        "https://i.ibb.co/nM8hc9FD/5.jpg",
-        "https://i.ibb.co/N6WgtpJh/6.jpg",
-        "https://i.ibb.co/HDgYnt6N/image.jpg",
-        "https://i.ibb.co/N6QKX38L/image.jpg",
-        "https://i.ibb.co/hxNrCjRr/image.jpg",
-        "https://i.ibb.co/FkCmmWvG/image.jpg",
+        "https://i.ibb.co/tpsKS92Y/1.jpg","https://i.ibb.co/8nh6tMfq/2.jpg","https://i.ibb.co/bM750XzS/3.jpg",
+        "https://i.ibb.co/BVwvFQGv/4.jpg","https://i.ibb.co/nM8hc9FD/5.jpg","https://i.ibb.co/N6WgtpJh/6.jpg",
+        "https://i.ibb.co/HDgYnt6N/image.jpg","https://i.ibb.co/N6QKX38L/image.jpg","https://i.ibb.co/hxNrCjRr/image.jpg",
+        "https://i.ibb.co/FkCmmWvG/image.jpg"
       ];
       let currentPriceIndex = 0;
-
       const priceOverlay = document.getElementById('priceListOverlay');
       const zoomImage = document.getElementById('galleryZoomImage');
       const zoomContainer = document.getElementById('galleryZoomContainer');
@@ -1437,7 +1342,6 @@
       const badge = document.getElementById('priceBadge');
       const zoomLevelEl = document.getElementById('zoomLevel');
       const zoomResetBtn = document.getElementById('zoomResetBtn');
-
       let scale = 1, translateX = 0, translateY = 0, isDragging = false, startX = 0, startY = 0;
 
       function applyTransform() {
@@ -1446,34 +1350,23 @@
         zoomContainer.classList.toggle('zoomed', scale > 1);
         zoomResetBtn.classList.toggle('show', scale > 1);
       }
-
       function resetZoom() { scale = 1; translateX = 0; translateY = 0; applyTransform(); }
 
       document.getElementById('zoomInBtn').onclick = (e) => { e.stopPropagation(); scale = Math.min(scale + 0.5, 5); applyTransform(); };
       document.getElementById('zoomOutBtn').onclick = (e) => { e.stopPropagation(); scale = Math.max(scale - 0.5, 0.5); if (scale <= 1) { translateX = 0; translateY = 0; } applyTransform(); };
       zoomResetBtn.onclick = (e) => { e.stopPropagation(); resetZoom(); };
-
       zoomContainer.addEventListener('wheel', (e) => {
         e.preventDefault();
         scale = Math.max(0.5, Math.min(5, scale + (e.deltaY > 0 ? -0.3 : 0.3)));
         if (scale <= 1) { translateX = 0; translateY = 0; }
         applyTransform();
       }, { passive: false });
-
-      zoomContainer.addEventListener('mousedown', (e) => {
-        if (scale > 1) { isDragging = true; startX = e.clientX - translateX; startY = e.clientY - translateY; }
-      });
+      zoomContainer.addEventListener('mousedown', (e) => { if (scale > 1) { isDragging = true; startX = e.clientX - translateX; startY = e.clientY - translateY; } });
       window.addEventListener('mousemove', (e) => { if (isDragging && scale > 1) { translateX = e.clientX - startX; translateY = e.clientY - startY; applyTransform(); } });
       window.addEventListener('mouseup', () => { isDragging = false; });
-
-      zoomContainer.addEventListener('touchstart', (e) => {
-        if (e.touches.length === 1 && scale > 1) { isDragging = true; startX = e.touches[0].clientX - translateX; startY = e.touches[0].clientY - translateY; }
-      }, { passive: true });
-      zoomContainer.addEventListener('touchmove', (e) => {
-        if (isDragging && scale > 1 && e.touches.length === 1) { translateX = e.touches[0].clientX - startX; translateY = e.touches[0].clientY - startY; applyTransform(); }
-      }, { passive: true });
+      zoomContainer.addEventListener('touchstart', (e) => { if (e.touches.length === 1 && scale > 1) { isDragging = true; startX = e.touches[0].clientX - translateX; startY = e.touches[0].clientY - translateY; } }, { passive: true });
+      zoomContainer.addEventListener('touchmove', (e) => { if (isDragging && scale > 1 && e.touches.length === 1) { translateX = e.touches[0].clientX - startX; translateY = e.touches[0].clientY - startY; applyTransform(); } }, { passive: true });
       zoomContainer.addEventListener('touchend', () => { isDragging = false; });
-
       zoomContainer.addEventListener('dblclick', (e) => {
         e.preventDefault();
         if (scale > 1) { resetZoom(); }
@@ -1490,15 +1383,12 @@
         document.getElementById('galleryPrev').disabled = currentPriceIndex === 0;
         document.getElementById('galleryNext').disabled = currentPriceIndex === priceImages.length - 1;
       }
-
       window.changePriceImage = (i) => { currentPriceIndex = i; updatePriceGallery(); };
-
       document.getElementById('floatingPriceBtn').onclick = () => { updatePriceGallery(); priceOverlay.classList.add('active'); };
       document.getElementById('priceListClose').onclick = () => { priceOverlay.classList.remove('active'); resetZoom(); };
       priceOverlay.onclick = function(e) { if (e.target === this) { this.classList.remove('active'); resetZoom(); } };
       document.getElementById('galleryPrev').onclick = () => { if (currentPriceIndex > 0) changePriceImage(currentPriceIndex - 1); };
       document.getElementById('galleryNext').onclick = () => { if (currentPriceIndex < priceImages.length - 1) changePriceImage(currentPriceIndex + 1); };
-
       document.getElementById('orderFromPriceBtn').onclick = () => {
         priceOverlay.classList.remove('active');
         resetZoom();
@@ -1509,13 +1399,11 @@
           document.getElementById('orderModal').classList.add('active');
         }, 350);
       };
-
       badge.textContent = priceImages.length;
 
       const orderModal = document.getElementById('orderModal');
       const phoneNumber = '201050011053';
       let currentProduct = '';
-
       window.openOrderModal = (title) => {
         currentProduct = title;
         document.getElementById('modalName').value = '';
@@ -1531,7 +1419,6 @@
         window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(`مرحباً أنا ${n} | أريد طلب: ${currentProduct}\n${m}`)}`, '_blank');
         orderModal.classList.remove('active');
       };
-
       window.addNewCard = (img, title, desc) => { cardsData.push({ img, title, desc: desc || '' }); renderCards(); };
     })();
   </script>
@@ -1549,20 +1436,12 @@
       document.addEventListener('contextmenu', e => { e.preventDefault(); sa(); });
       document.addEventListener('keydown', e => { if ((e.ctrlKey||e.metaKey) && ['c','u','s','p'].includes(e.key) || e.key==='F12' || (e.ctrlKey&&e.shiftKey&&['i','j'].includes(e.key))) { e.preventDefault(); sa(); } });
 
-// صور الاسعار في الرئيسية
-            const priceListImages = [
-        "https://i.ibb.co/tpsKS92Y/1.jpg",
-        "https://i.ibb.co/8nh6tMfq/2.jpg",
-        "https://i.ibb.co/bM750XzS/3.jpg",
-        "https://i.ibb.co/BVwvFQGv/4.jpg",
-        "https://i.ibb.co/nM8hc9FD/5.jpg",
-        "https://i.ibb.co/N6WgtpJh/6.jpg",
-        "https://i.ibb.co/HDgYnt6N/image.jpg",
-        "https://i.ibb.co/N6QKX38L/image.jpg",
-        "https://i.ibb.co/hxNrCjRr/image.jpg",
-        "https://i.ibb.co/FkCmmWvG/image.jpg",
+      const priceListImages = [
+        "https://i.ibb.co/tpsKS92Y/1.jpg","https://i.ibb.co/8nh6tMfq/2.jpg","https://i.ibb.co/bM750XzS/3.jpg",
+        "https://i.ibb.co/BVwvFQGv/4.jpg","https://i.ibb.co/nM8hc9FD/5.jpg","https://i.ibb.co/N6WgtpJh/6.jpg",
+        "https://i.ibb.co/HDgYnt6N/image.jpg","https://i.ibb.co/N6QKX38L/image.jpg","https://i.ibb.co/hxNrCjRr/image.jpg",
+        "https://i.ibb.co/FkCmmWvG/image.jpg"
       ];
-
       function renderPriceImages() {
         const grid = document.getElementById('priceImagesGrid');
         if (!grid) return;
@@ -1574,12 +1453,7 @@
         `).join('');
       }
       renderPriceImages();
-
-      window.addPriceImage = function(url) {
-        if (!url) return;
-        priceListImages.push(url);
-        renderPriceImages();
-      };
+      window.addPriceImage = function(url) { if (!url) return; priceListImages.push(url); renderPriceImages(); };
     })();
   </script>
 </body>
